@@ -2,14 +2,10 @@ import { LightningElement, wire, api, track } from "lwc";
 import { encodeDefaultFieldValues } from "lightning/pageReferenceUtils";
 import { NavigationMixin } from "lightning/navigation";
 import getOffrs from "@salesforce/apex/MyOfferController.getOffrs";
-import getOffName from "@salesforce/apex/MyOfferController.getOffName";
 
 export default class MyOffer extends NavigationMixin(LightningElement) {
   @api recordId;
-  @api tabName;
-  @api offrTagName;
   @track offer;
-  @track offName;
   @track error;
 
   @wire(getOffrs, { accountId: "$recordId" })
@@ -23,29 +19,24 @@ export default class MyOffer extends NavigationMixin(LightningElement) {
     }
   }
 
-  @wire(getOffName, { name: "$offrTagName" })
-  wiredasf({ error, data }) {
-    if (data) {
-      this.offName = data;
-      this.error = undefined;
-    } else if (error) {
-      this.error = error;
-      this.offName = undefined;
-    }
-  }
-
-  clickedAll(){
+  clickedAll() {
     this[NavigationMixin.Navigate]({
-        type: 'standard__webPage',
-        attributes: {
-            url: 'https://curious-impala-cypd70-dev-ed.lightning.force.com/lightning/o/MyOffer__c/list?filterName=00B7R00000B2KW8UAN'
-        },
+      type: "standard__webPage",
+      attributes: {
+        url:
+          "https://curious-impala-cypd70-dev-ed.lightning.force.com/lightning/o/MyOffer__c/list?filterName=00B7R00000B2KW8UAN"
+      }
     });
   }
 
-  clickOnOffer(event){
-    event.currentTarget.dataset.id;
-    window.location.assign('https://curious-impala-cypd70-dev-ed.lightning.force.com/lightning/r/MyOffer__c/'+newId+'/view');
+  clickOnOffer(event) {
+    let id = event.target.id;
+    let newId = id.slice(0, id.length - 3);
+    window.location.assign(
+      "https://curious-impala-cypd70-dev-ed.lightning.force.com/lightning/r/MyOffer__c/" +
+        newId +
+        "/view"
+    );
   }
 
   navigateToNewContactWithDefaults() {
@@ -57,7 +48,7 @@ export default class MyOffer extends NavigationMixin(LightningElement) {
       Name: "My Opportunity",
       LeadSource: "My Offer",
       StageName: "Prospecting",
-      Amount: 1000.00,
+      Amount: 1000.0,
       CloseDate: dateString,
       AccountId: this.recordId
     });
