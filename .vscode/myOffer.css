@@ -1,0 +1,25 @@
+.alignCenter{
+
+    align-items: center!important;
+}
+
+.domain{
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    background-color:rgb(242, 242, 242);
+    font-weight: bold;
+    text-indent: 50px;
+}
+
+.pad{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.padButton{
+    padding-left: 10px;
+    padding-bottom: 2px;
+}
