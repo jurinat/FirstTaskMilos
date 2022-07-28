@@ -1,59 +1,94 @@
 <template>
-    <lightning-card title="Obchodne prilezitosti" icon-name="standard:lightning_component">
-        <h3 slot="title">
-            <lightning-icon icon-name="standard:feed" title="feed" size="small"></lightning-icon>
-            <strong class="space-icon-text">Obchodné príležitosti</strong>
-        </h3>
-        <div class="domain">
-            <p>DOMENA - PRODUKT</p>
-        </div>     
-        <div if:true ={offer}>
-            <template for:each={offer} for:item="off" for:index="index">
-                <div class="slds-box" key={off.Id}>
-                    <div class="slds-grid">
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_vertical-align-end">
-                                <div class="slds-col slds-align-middle">
-                                        <div class="slds-col slds-m-around_medium">
-                                            <lightning-icon icon-name="custom:custom11" title="custom11" size="small"></lightning-icon>
-                                        </div>       
-                                </div>
-                                <div class="slds-col">
-                                    <lightning-breadcrumb label={off.Name} id={off.Id} onclick={clickOnOffer}></lightning-breadcrumb>           
-                                    <div class="slds-box slds-box_xx-small slds-text-align_center slds-m-around_xxx-small">
-                                        <p>{off.Tag1__c}</p>
-                                    </div>
-                                </div>
-                                <div class="slds-col">
-                                    <div class="slds-box slds-box_xx-small slds-text-align_center slds-m-around_xxx-small">
-                                        <p>{off.Tag2__c}</p>
-                                    </div>   
-                                </div>
-                                <div class="slds-col">
-                                    <div class="slds-box slds-box_xx-small slds-text-align_center slds-m-around_xxx-small">
-                                        <p>{off.Tag3__c}</p>
-                                    </div>
-                                </div>      
-                                <div class="slds-col slds-m-left_medium slds-p-around-none ">
-                                    <lightning-button label="Zájem" icon-name="utility:like" onclick={navigateToNewContactWithDefaults}></lightning-button>
-                                </div>
-                                <div class="slds-col  slds-p-around-none ">
-                                    <lightning-button label="Nezájem" icon-name="utility:dislike"></lightning-button>
-                                </div>
-                                <div class="slds-col slds-p-around-none ">
-                                    <lightning-button label="Prodej" icon-name="utility:cart"></lightning-button>
-                                </div>
-                                <div class="slds-col slds-p-around-none ">
-                                    <lightning-button icon-name="utility:home"></lightning-button>
-                                </div>
-                            </div>
-                        </div>                                                                                
-                    </div>
-                </div>               
-            </template>
+  <lightning-card
+    title="Obchodne prilezitosti"
+    icon-name="standard:lightning_component"
+  >
+    <h3 slot="title">
+      <lightning-icon
+        icon-name="standard:feed"
+        title="feed"
+        size="small"
+      ></lightning-icon>
+      <strong class="space-icon-text">Obchodné príležitosti</strong>
+    </h3>
+    <div class="domain">
+      <p>DOMENA - PRODUKT</p>
+    </div>
+    <div if:true={offer}>
+      <template for:each={offer} for:item="off" for:index="index">
+        <div class="slds-box" key={off.Id}>
+          <div class="slds-grid">
+            <div class="slds-col">
+              <div class="slds-grid slds-grid_vertical-align-end">
+                <div class="slds-col slds-align-middle">
+                  <div class="slds-col slds-m-around_medium">
+                    <lightning-icon
+                      icon-name="custom:custom11"
+                      title="custom11"
+                      size="small"
+                    ></lightning-icon>
+                  </div>
+                </div>
+                <div class="slds-col">
+                  <lightning-breadcrumb
+                    label={off.Name}
+                    id={off.Id}
+                    onclick={clickOnOffer}
+                  ></lightning-breadcrumb>
+                  <div
+                    class="slds-box slds-box_xx-small slds-text-align_center slds-m-around_xxx-small"
+                  >
+                    <p>{off.Tag1__c}</p>
+                  </div>
+                </div>
+                <div class="slds-col">
+                  <div
+                    class="slds-box slds-box_xx-small slds-text-align_center slds-m-around_xxx-small"
+                  >
+                    <p>{off.Tag2__c}</p>
+                  </div>
+                </div>
+                <div class="slds-col">
+                  <div
+                    class="slds-box slds-box_xx-small slds-text-align_center slds-m-around_xxx-small"
+                  >
+                    <p>{off.Tag3__c}</p>
+                  </div>
+                </div>
+                <div class="slds-col slds-m-left_medium slds-p-around-none">
+                  <lightning-button
+                    label="Zájem"
+                    icon-name="utility:like"
+                    onclick={navigateToNewContactWithDefaults}
+                  ></lightning-button>
+                </div>
+                <div class="slds-col slds-p-around-none">
+                  <lightning-button
+                    label="Nezájem"
+                    icon-name="utility:dislike"
+                  ></lightning-button>
+                </div>
+                <div class="slds-col slds-p-around-none">
+                  <lightning-button
+                    label="Prodej"
+                    icon-name="utility:cart"
+                  ></lightning-button>
+                </div>
+                <div class="slds-col slds-p-around-none">
+                  <lightning-button icon-name="utility:home"></lightning-button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="slds-col slds-m-around_medium">
-            <lightning-button label="Show All" icon-name="utility:new_window" onclick={clickedAll}></lightning-button>
-        </div>    
-    </lightning-card>
+      </template>
+    </div>
+    <div class="slds-col slds-m-around_medium">
+      <lightning-button
+        label="Show All"
+        icon-name="utility:new_window"
+        onclick={clickedAll}
+      ></lightning-button>
+    </div>
+  </lightning-card>
 </template>

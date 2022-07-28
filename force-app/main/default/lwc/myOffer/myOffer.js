@@ -18,7 +18,6 @@ export default class MyOffer extends NavigationMixin(LightningElement) {
       this.offer = undefined;
     }
   }
-
   clickedAll() {
     this[NavigationMixin.Navigate]({
       type: "standard__webPage",
