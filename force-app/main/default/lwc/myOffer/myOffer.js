@@ -18,6 +18,7 @@ export default class MyOffer extends NavigationMixin(LightningElement) {
       this.offer = undefined;
     }
   }
+
   clickedAll() {
     this[NavigationMixin.Navigate]({
       type: "standard__webPage",
@@ -29,11 +30,9 @@ export default class MyOffer extends NavigationMixin(LightningElement) {
   }
 
   clickOnOffer(event) {
-    let id = event.target.id;
-    let newId = id.slice(0, id.length - 3);
     window.location.assign(
       "https://curious-impala-cypd70-dev-ed.lightning.force.com/lightning/r/MyOffer__c/" +
-        newId +
+        this.recordId +
         "/view"
     );
   }

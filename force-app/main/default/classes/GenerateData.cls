@@ -1,17 +1,13 @@
 public with sharing class GenerateData{
   public void generateAccounts(){
 
-    System.debug('tests');
-
     List<Account> accounts = new List<Account>();
-
     List<String> accountNames = new List<String>{ 'Amanda', 'Jon', 'Valentina', 'Francis' };
 
     for (Integer i = 0; i < accountNames.size(); i++){
 
       Account account = new Account();
       account.Name = accountNames[i];
-
       accounts.add(account);
     }
     insert accounts;
@@ -41,11 +37,13 @@ public with sharing class GenerateData{
     List<OfferTag__c> offerTags = new List<OfferTag__c>();
 
     for (Integer i = 0; i < 4; i++){
+
       OfferTag__c offerTag1 = new OfferTag__c(Name = 'Tag ' + i);
+
       offerTags.add(offerTag1);
     }
-
     insert offerTags;
     return offerTags;
   }
+
 }
