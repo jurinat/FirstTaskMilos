@@ -14,6 +14,7 @@
 .orangeStarIcon {
   --sds-c-icon-color-foreground: orange;
   --sds-c-icon-color-background: white;
+  padding-left: 15px;
 }
 .unwantedDot {
   list-style-type: none;
